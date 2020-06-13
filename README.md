@@ -1,7 +1,8 @@
 # SSIS-ETL-MSSQL
 
 ### Project Summary
-Runs an ETL pipeline load csv files to staging tables and create fact and dimensions tables all in SQL Server Integration Services (SSIS) with a Microsoft SQL server instance
+Runs an ETL pipeline load csv files to staging tables and create fact and dimensions tables all in SQL Server Integration Services (SSIS) with a Microsoft SQL server instance. \
+This my first time trying SSIS and I wanted to work on a familiar project so I did the samae steps I did in my cloud based DW repo [here](https://github.com/ijdev/cloud-dw-airflow)
 
 ### Project Scopes
 The scope of this project will be to build a data warehouse with Star conceptual schema on Microsoft SQL server fro BI and Data scientist
@@ -34,29 +35,36 @@ learn what state is more appealing for students for example.\
 Known the country of the immigrant, what country are most immigrants are from? are they located in 1 or two states or scattered?
 
 ### Data pipeline
+\
 ![dag](/helpers/pipeline.PNG)
-
+\
 Each SQL Task is configured to connect to the SQL server and run a query. Queries can be found in the helpers folder.
 
 #### What the staging data flow does
 1. Create Flat File manager and connect to the csv file
-![i94](/helpers/i94staging.png)
+\
+![i94](/helpers/i94staging.PNG)
+\
 2. Connect to an OLE DB and map the columns if SSIS did not di for you
-![i94](/helpers/i94staging_oledb.png)
-
+\
+\
 The same for the demographic staging table.
 
 #### The lookup data flow is simpler (Same in all lookup tables)
 1. Flat file connection to csv
 2. Load to to the appropriate table
-![lookupExample](/helpers/lookup_example.png)
+\
+![lookupExample](/helpers/lookup_example.PNG)
 
 
 #### The Dimensions and fact table
-All of them are SQL Task (queries are in the helpers folder)
+All of them are SQL Task (queries are in the helpers folder)\
 an example how to configure the sql task for visa dim
-![visa_dim](/helpers/excute_sql.png)
+![visa_dim](/helpers/excute_sql.PNG)
+\
 
+#### When runned it should produce something like this
+![visa_dim](/helpers/pipeline_success.PNG)
 ### Project files
 
 #### Data folder
